@@ -4,6 +4,9 @@ author: Mike Johnson
 subtitle: "For Elyssa"
 output:
   html_document:
+    toc: true
+    toc_float:
+      toc_collapsed: true
     theme: paper
     code_download: true
 ---
