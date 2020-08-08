@@ -1,0 +1,98 @@
+---
+title: "climateR tests"
+author: Mike Johnson
+subtitle: "For Elyssa"
+output:
+  html_document:
+    theme: paper
+    code_download: true
+---
+
+```{r, message = F, warning = F}
+library(raster)
+library(climateR)
+library(AOI)
+```
+
+
+```{r}
+AOI = aoi_get(c(45,-96,100,100),km=TRUE)
+```
+
+# GridMet Tests
+
+```{r}
+gm_pre_2006 = getGridMET(AOI, 
+                         param="tmax", 
+                         startDate = "2000-01-01", 
+                         endDate   = "2000-01-04")
+plot(gm_pre_2006[[1]])
+```
+
+
+```{r}
+gm_post_2006 = getGridMET(AOI, 
+                          param="tmax",
+                          startDate = "2010-01-01", 
+                          endDate   = "2010-01-04")
+plot(gm_post_2006[[1]])
+```
+
+# MACA Tests 
+
+## Historic
+
+```{r}
+ma_pre_2006 = getMACA(AOI, 
+                      param="tmax",
+                      startDate = "2000-01-01", 
+                      endDate   = "2000-01-04")
+plot(ma_pre_2006[[1]])
+```
+
+
+```{r}
+ma_post_2006 = getMACA(AOI, 
+                       param="tmax",
+                       startDate = "2010-01-01", 
+                       endDate   = "2010-01-04")
+plot(ma_post_2006[[1]])
+```
+
+## Future
+
+```{r}
+ma_2025 =  getMACA(AOI, 
+                   param="tmax",
+                   startDate = "2025-01-01", 
+                   endDate = "2025-01-04")
+plot(ma_2025[[1]])
+```
+
+
+```{r}
+ma_2051 =  getMACA(AOI, 
+                   param="tmax", 
+                   startDate = "2051-01-01", 
+                   endDate   = "2051-01-04")
+plot(ma_2051[[1]])
+```
+
+
+```{r}
+ma_2076 =  getMACA(AOI, 
+                   param="tmax", 
+                   startDate = "2076-01-01", 
+                   endDate   = "2076-01-04")
+plot(ma_2076[[1]])
+```
+
+
+```{r}
+ma_2099 =  getMACA(AOI, 
+                   param="tmax", 
+                   startDate = "2099-01-01", 
+                   endDate   = "2099-01-04")
+plot(ma_2099[[1]])
+```
+
